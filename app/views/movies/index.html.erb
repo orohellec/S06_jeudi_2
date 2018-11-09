@@ -1,0 +1,40 @@
+<% provide(:title, 'Movie search') %>
+<h1>Quel film voulez vous regardez</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:movies, url: {action: "search"}) do |f| %>
+
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Votre recherche' %>
+      <br />
+      <%= f.submit "rechercher", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <br />
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">index</th>
+      <th scope="col">Title</th>
+      <th scope="col">Réalisateur</th>
+      <th scope="col">Date de sortie</th>
+      <th scope="col">Poster</th>
+    </tr>
+  </thead>
+  <% index = 1 %>
+  <tbody>
+    <% if @@tab_global != nil %>
+    <%  @@tab_global.each do |line| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= line %></td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+    </tr>
+  <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
